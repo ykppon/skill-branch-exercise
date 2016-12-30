@@ -6,6 +6,18 @@ app.use(cors());
 app.get('/', function (req, res) {
     var name = req.query.fullname;
     var nameList = name.split(' ');
+    var doubleList = [];
+    var finishList = [];
+    for(var i=0;i<nameList.length;i++) {
+        if(nameList[i]!=''){
+            doubleList.push(nameList[i]);
+        };
+    };
+    for(var i=0;i<doubleList.length;i++){
+        var str = doubleList[i][0].toUpperCase() + doubleList[i].slice(1).toLowerCase();
+        finishList.push(str);
+    };
+    nameList = finishList;
     var changeName = function(name){
         var inic = '';
         for(var i=0;i<nameList.length-1;i++) {
